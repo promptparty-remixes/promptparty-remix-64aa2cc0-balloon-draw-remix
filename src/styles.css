@@ -1,0 +1,207 @@
+:root {
+  font-family: Inter, system-ui, sans-serif;
+  color: #f3f3f3;
+}
+
+html, body, #root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+.app {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(14, 14, 14, 0.9);
+  border-bottom: 1px solid #232323;
+}
+
+.toolbar button,
+.toolbar select,
+.toolbar input {
+  background: #1c1c1c;
+  color: #f5f5f5;
+  border: 1px solid #373737;
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+.toolbar button.active {
+  border-color: #e0b84b;
+  color: #e0b84b;
+}
+
+.toolbar label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.divider {
+  width: 1px;
+  align-self: stretch;
+  background: #333;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  min-height: 0;
+}
+
+.viewport {
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.layers-pane {
+  border-left: 1px solid #232323;
+  background: linear-gradient(#2a2a2a, #202020);
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  margin-left: 0;
+  border: 1px solid #3d3d3d;
+  border-radius: 6px;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.layers-pane-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: #1c2a3d;
+  border-bottom: 1px solid #3e4f66;
+  padding: 8px 10px;
+}
+
+.layers-pane-header h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.layers-pane button {
+  background: #1c1c1c;
+  color: #f5f5f5;
+  border: 1px solid #373737;
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+.layers-pane button:disabled {
+  opacity: 0.35;
+}
+
+.layers-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  border-bottom: 1px solid #434343;
+  min-height: 0;
+  scrollbar-width: none;
+}
+
+.layers-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.layer-item {
+  width: 100%;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 58px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+}
+
+.layer-item.active {
+  border-color: #2f8ce7;
+  background: #235e9d;
+}
+
+.layer-thumb {
+  width: 56px;
+  height: 40px;
+  border: 1px solid #6f6f6f;
+  background:
+    linear-gradient(45deg, #6b6b6b 25%, transparent 25%),
+    linear-gradient(-45deg, #6b6b6b 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #6b6b6b 75%),
+    linear-gradient(-45deg, transparent 75%, #6b6b6b 75%);
+  background-size: 10px 10px;
+  background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+}
+
+.layer-name {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #f2f2f2;
+  font-size: 0.95rem;
+  padding: 4px 6px;
+  border-radius: 4px;
+  min-width: 0;
+}
+
+.layer-item.active .layer-name {
+  color: #ffffff;
+}
+
+.layer-name:focus {
+  outline: none;
+  border-color: #8fc3ff;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.layer-selected-indicator {
+  color: #8cc4ff;
+  font-size: 0.9rem;
+  opacity: 0;
+}
+
+.layer-item.active .layer-selected-indicator {
+  opacity: 1;
+}
+
+.layers-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 8px;
+}
+
+.layers-controls button {
+  font-size: 0.82rem;
+  padding: 6px 4px;
+}
+
+.tack-mode .viewport {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><text y="18" font-size="18">📌</text></svg>') 3 3, pointer;
+}
+
+.drag-mode .viewport {
+  cursor: grab;
+}
+
